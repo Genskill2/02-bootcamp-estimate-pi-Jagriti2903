@@ -1,6 +1,39 @@
 import math
 import unittest
 
+def wallis(n):
+    product = 1
+
+    for i in range(1,n+1):
+        product = product * (4*i*i)/(4*i*i-1)
+
+    return (2*product)
+
+
+
+from random import*
+def monte_carlo(n):
+
+    square = 0
+    circle = 0
+
+    while n :
+
+        y = random()
+        x = random()
+
+        if (x**2 + y**2)<=1 :
+            square = square + 1
+            circle = circle + 1
+
+        else :
+            square = square + 1
+        n=n-1
+        
+    return (4 * circle/ square)
+
+
+
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
